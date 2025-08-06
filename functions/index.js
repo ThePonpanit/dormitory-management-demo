@@ -168,11 +168,13 @@ exports.cacheMonthlyWeather = onSchedule(
   }
 );
 
+// 📅 Backfill Monthly Weather Dat a
 exports.backfillMonthlyWeather = functions.https.onRequest(async (req, res) => {
   const axios = require("axios");
   const admin = require("firebase-admin");
   const db = admin.firestore();
 
+  // start from January 2024 to the current month
   const startYear = 2024;
   const startMonth = 0; // Jan = 0
   const now = new Date();
