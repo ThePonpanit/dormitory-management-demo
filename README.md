@@ -1,4 +1,18 @@
-# 🏠 Dormitory Management System
+# 🏠 Dormito*No registration or Firebase setup needed - perfect for recruiters and potential employers to evaluate!*
+
+## 📸 Screenshots
+
+### Dashboard Overview
+
+![Dashboard Screenshot](./screenshots/dashboard.png)
+_Real-time occupancy statistics, revenue tracking, and system overview_
+
+### Room Management
+
+![Rooms Screenshot](./screenshots/rooms.png)
+_Visual room status, tenant management, and room operations_
+
+## ✨ Key FeaturesManagement System
 
 A comprehensive web application for managing dormitory operations, built with modern web technologies. This system streamlines room management, tenant administration, billing processes, and payment collection for dormitory owners and administrators.
 
