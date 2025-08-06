@@ -1,4 +1,16 @@
-# 🏠 Dormito*No registration or Firebase setup needed - perfect for recruiters and potential employers to evaluate!*
+# 🏠 Dormitory Management System
+
+A comprehensive web application for managing dormitory operations, built with modern web technologies. This system streamlines room management, tenant administration, billing processes, and payment collection for dormitory owners and administrators.
+
+## 🚀 Live Demo
+
+Experience the application with guest access - no setup required!
+
+1. **Visit the [Live Demo](https://dorm-app-demo.web.app/login)** 🌐
+2. Click **"Login as Guest (Test Access)"** for immediate access
+3. Explore all features with admin privileges
+
+_No registration or Firebase setup needed - perfect for recruiters and potential employers to evaluate!_
 
 ## 📸 Screenshots
 
@@ -12,7 +24,12 @@ _Real-time occupancy statistics, revenue tracking, and system overview_
 ![Rooms Screenshot](./screenshots/rooms.png)
 _Visual room status, tenant management, and room operations_
 
-## ✨ Key FeaturesManagement System
+### Billing Example
+
+![Billing Screenshot](./screenshots/billing.png)
+_Monthly billing statement with automated calculations and PromptPay QR code_
+
+## ✨ Key Features
 
 A comprehensive web application for managing dormitory operations, built with modern web technologies. This system streamlines room management, tenant administration, billing processes, and payment collection for dormitory owners and administrators.
 
