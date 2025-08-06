@@ -27,6 +27,7 @@ _Visual room status, tenant management, and room operations_
 ### Billing Example
 
 ![Billing Screenshot](./screenshots/billing.png)
+
 _Monthly billing statement with automated calculations and PromptPay QR code_
 
 ## ✨ Key Features
