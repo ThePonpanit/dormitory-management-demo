@@ -8,10 +8,13 @@
           class="text-xl font-semibold text-gray-800 cursor-pointer hover:text-blue-600 transition select-none"
           @click="routeToHome"
         >
-          🏠 Khampor-Piemsuk
+          🏠 Khampor-Piemsuk- <span class="text-green-500">DEMO</span>
         </h1>
         <div class="flex items-center space-x-6">
-          <div v-if="auth.user?.role === 'admin'" class="space-x-4 select-none">
+          <div
+            v-if="auth.user?.role === 'admin' || auth.user?.isGuest"
+            class="space-x-4 select-none"
+          >
             <RouterLink to="/dashboard" :class="navClass('/dashboard')"
               >Dashboard</RouterLink
             >
@@ -25,7 +28,7 @@
 
           <!-- Vertical Line -->
           <div
-            v-if="auth.user?.role === 'admin'"
+            v-if="auth.user?.role === 'admin' || auth.user?.isGuest"
             class="border-l border-gray-400 h-6 mx-4 select-none"
           ></div>
           <!-- User Menu -->
@@ -54,6 +57,11 @@
                 <div class="p-4 border-b cursor-default">
                   <p class="font-semibold text-gray-800">
                     {{ auth.user?.displayName }}
+                    <span
+                      v-if="auth.user?.isGuest"
+                      class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full ml-2"
+                      >GUEST</span
+                    >
                   </p>
                   <p class="text-sm text-gray-400 truncate">
                     {{ auth.user?.email }}
@@ -61,7 +69,9 @@
                 </div>
 
                 <!-- Admin Links -->
-                <template v-if="auth.user?.role === 'admin'">
+                <template
+                  v-if="auth.user?.role === 'admin' || auth.user?.isGuest"
+                >
                   <div class="border-b">
                     <RouterLink
                       to="/qr"
@@ -94,7 +104,13 @@
 
     <!-- Routed Views -->
     <main class="p-6">
-      <template v-if="auth.user?.role || route.path === '/login' || route.path === '/register'">
+      <template
+        v-if="
+          auth.user?.role ||
+          route.path === '/login' ||
+          route.path === '/register'
+        "
+      >
         <RouterView />
       </template>
       <template v-else>
@@ -189,7 +205,11 @@ const navClass = (path) =>
 
 // Logout logic
 const handleLogout = async () => {
-  await signOut(firebaseAuth);
+  // Only call Firebase signOut for real authenticated users, not guests
+  if (!auth.user?.isGuest) {
+    await signOut(firebaseAuth);
+  }
+
   auth.logout();
   console.log("User logged out");
 

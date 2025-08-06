@@ -84,6 +84,13 @@
         </button>
       </div>
 
+      <div class="mt-4">
+        <button class="btn-guest" @click="loginAsGuest" :disabled="isLoading">
+          <span class="material-symbols-outlined mr-2">person</span>
+          Login as Guest (Test Access)
+        </button>
+      </div>
+
       <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </div>
   </div>
@@ -145,6 +152,23 @@ const loginWithGoogle = async () => {
     errorMessage.value = err.message;
   }
 };
+
+const loginAsGuest = () => {
+  errorMessage.value = "";
+  isLoading.value = true;
+
+  try {
+    // Use the guest login from auth store
+    authStore.loginAsGuest();
+
+    // Redirect to dashboard
+    router.push("/dashboard");
+  } catch (err) {
+    errorMessage.value = "Failed to login as guest";
+  } finally {
+    isLoading.value = false;
+  }
+};
 </script>
 
 <style scoped>
@@ -167,6 +191,11 @@ button {
 
 .btn-primary {
   @apply inline-flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700 transition px-4 py-2 rounded;
+  white-space: nowrap;
+}
+
+.btn-guest {
+  @apply inline-flex items-center justify-center bg-green-600 text-white hover:bg-green-700 transition px-4 py-2 rounded w-full;
   white-space: nowrap;
 }
 

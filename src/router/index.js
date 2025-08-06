@@ -84,11 +84,12 @@ router.beforeEach(async (to, from, next) => {
 
   const isAuthenticated = !!authStore.user;
   const userRole = authStore.user?.role;
+  const isGuest = authStore.user?.isGuest || false;
 
   if (requiresAuth && !isAuthenticated) {
     next("/login");
-  } else if (requiredRole && userRole !== requiredRole) {
-    // 🚫 User lacks required role
+  } else if (requiredRole && userRole !== requiredRole && !isGuest) {
+    // 🚫 User lacks required role (but allow guests full access)
     alert("You do not have permission to access this page.");
     next("/dashboard"); // Or redirect anywhere else
   } else if (to.path === "/login" && isAuthenticated) {

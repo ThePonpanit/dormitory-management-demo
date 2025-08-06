@@ -133,7 +133,10 @@ onMounted(() => {
   watch(
     () => authStore.initialized,
     (isReady) => {
-      if (isReady && authStore.user?.role === "admin") {
+      if (
+        isReady &&
+        (authStore.user?.role === "admin" || authStore.user?.isGuest)
+      ) {
         fetchUsers(); // 🚀 Now it's safe to call
       }
     },
@@ -149,7 +152,7 @@ const assignRole = async (user, role) => {
     const fn = httpsCallable(functions, "setRole");
     await refreshToken();
 
-    if (authStore.user?.role !== "admin") {
+    if (authStore.user?.role !== "admin" && !authStore.user?.isGuest) {
       throw new Error("You do not have permission to assign roles.");
     }
 

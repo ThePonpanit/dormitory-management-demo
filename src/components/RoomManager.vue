@@ -330,6 +330,20 @@ async function saveRoom() {
     return;
   }
 
+  // Check for duplicate room number
+  const existingRoom = rooms.value.find(
+    (room) =>
+      room.name.toLowerCase() === form.value.name.toLowerCase() &&
+      room.id !== currentId.value
+  );
+
+  if (existingRoom) {
+    alert(
+      `Room number "${form.value.name}" already exists. Please choose a different room number.`
+    );
+    return;
+  }
+
   const payload = {
     ...form.value,
     capacity: form.value.capacity || 2,

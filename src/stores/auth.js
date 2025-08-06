@@ -37,9 +37,32 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const logout = async () => {
-    await auth.signOut(); // actually sign out
-    user.value = null;
-    accessToken.value = null;
+    // Check if it's a guest user - don't try to sign out from Firebase
+    if (user.value?.isGuest) {
+      user.value = null;
+      accessToken.value = null;
+    } else {
+      await auth.signOut(); // actually sign out
+      user.value = null;
+      accessToken.value = null;
+    }
+  };
+
+  // Guest login function for testing
+  const loginAsGuest = () => {
+    const guestUser = {
+      uid: "guest-user-123",
+      email: "guest@dormapp.test",
+      displayName: "Guest User",
+      role: "admin", // Give guest admin access for testing
+      photoURL: null,
+      emailVerified: false,
+      isGuest: true, // Flag to identify guest users
+    };
+
+    user.value = guestUser;
+    accessToken.value = "guest-token-123"; // Mock token for guest
+    initialized.value = true;
   };
 
   return {
@@ -49,5 +72,6 @@ export const useAuthStore = defineStore("auth", () => {
     setUser,
     initAuthListener,
     logout,
+    loginAsGuest,
   };
 });

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "khampor-dorm"
-  }
+    "default": "khampor-dorm",
+    "demo": "dorm-app-demo"
+  },
+  "targets": {},
+  "etags": {}
 }
