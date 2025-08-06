@@ -266,5 +266,3 @@ This project showcases expertise in:
 ---
 
 **Built with ❤️ by [ThePonpanit](https://github.com/ThePonpanit)**
-
-_Ready to discuss opportunities? Let's connect and build amazing things together!_
