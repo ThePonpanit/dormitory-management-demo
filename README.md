@@ -249,10 +249,6 @@ This project demonstrates modern web development practices and is open for colla
 - Submit pull requests for improvements
 - Use as a reference for similar projects
 
-## 📄 License
-
-This project is available under the MIT License. See the LICENSE file for more details.
-
 ## 👨‍💻 About the Developer
 
 This project showcases expertise in:
