@@ -40,22 +40,56 @@ The project is organized into the following main directories:
 
 ## Getting Started
 
-1. **Install dependencies:**
+1. **Clone the repository and install dependencies:**
+
    ```bash
    npm install
    ```
 
-2. **Run the development server:**
+2. **Set up environment variables:**
+
+   - Copy the example environment file:
+     ```bash
+     cp .env.example .env
+     ```
+   - Edit the `.env` file and replace the placeholder values with your actual Firebase project configuration:
+     ```env
+     VITE_FIREBASE_API_KEY=your_api_key_here
+     VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+     VITE_FIREBASE_PROJECT_ID=your_project_id
+     VITE_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
+     VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+     VITE_FIREBASE_APP_ID=your_app_id
+     VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
+     ```
+
+3. **Run the development server:**
+
    ```bash
    npm run dev
    ```
 
-3. **Build for production:**
+4. **Build for production:**
+
    ```bash
    npm run build
    ```
 
-4. **Deploy to Firebase:**
+5. **Deploy to Firebase:**
    ```bash
    npm run deploy
    ```
+
+## Environment Variables
+
+This project uses environment variables to store sensitive Firebase configuration. The following variables are required:
+
+- `VITE_FIREBASE_API_KEY`: Your Firebase project API key
+- `VITE_FIREBASE_AUTH_DOMAIN`: Your Firebase authentication domain
+- `VITE_FIREBASE_PROJECT_ID`: Your Firebase project ID
+- `VITE_FIREBASE_STORAGE_BUCKET`: Your Firebase storage bucket
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`: Your Firebase messaging sender ID
+- `VITE_FIREBASE_APP_ID`: Your Firebase app ID
+- `VITE_FIREBASE_MEASUREMENT_ID`: Your Firebase measurement ID (optional)
+
+**Note:** All environment variables for Vite must be prefixed with `VITE_` to be accessible in the frontend code.
