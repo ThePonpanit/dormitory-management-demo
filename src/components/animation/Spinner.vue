@@ -1,0 +1,20 @@
+<template>
+  <div class="loader"></div>
+</template>
+
+<style scoped>
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite linear;
+}
+
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+</style>
