@@ -117,6 +117,7 @@
           Avg Electricity Cost/Billing Room & Temperature Trend (last 6 months)
         </h2>
         <div class="h-64">
+          <!-- #cspell:disable-next-line -->
           <ElecTempTrendChart
             :months="last6MonthsLabels"
             :electricity-costs="last6MonthsCosts.electricity"
@@ -131,7 +132,7 @@
       <h1
         class="text-2xl font-semibold mb-4 mt-8 bg-gradient-to-r from-purple-600 via-purple-500 to-green-500 inline-block text-transparent bg-clip-text"
       >
-        Rooms Overview
+        Rooms Overview & Billing History
       </h1>
 
       <!-- 1️⃣ Always show the list -->

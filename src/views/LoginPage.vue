@@ -84,7 +84,7 @@
         </button>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-6">
         <button class="btn-guest" @click="loginAsGuest" :disabled="isLoading">
           <span class="material-symbols-outlined mr-2">person</span>
           Login as Guest (Test Access)

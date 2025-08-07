@@ -8,6 +8,7 @@
           class="text-xl font-semibold text-gray-800 cursor-pointer hover:text-blue-600 transition select-none"
           @click="routeToHome"
         >
+          <!-- #cspell:disable-next-line -->
           🏠 Khampor-Piemsuk- <span class="text-green-500">DEMO</span>
         </h1>
         <div class="flex items-center space-x-6">
@@ -187,6 +188,7 @@ watch(
 watch(
   () => route.path,
   (newPath) => {
+    // #cspell:disable-next-line
     document.title = `Khampor-Piemsuk - ${
       newPath === "/"
         ? "Home"
