@@ -1,4 +1,4 @@
-# 🏠 Dormitory Management System
+# 🏠 Dormitory Management System ~~~
 
 A comprehensive web application for managing dormitory operations, built with modern web technologies. This system streamlines room management, tenant administration, billing processes, and payment collection for dormitory owners and administrators.
 
